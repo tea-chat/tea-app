@@ -1,0 +1,16 @@
+import { styles } from "../styles.slint";
+import { TextEdit, VerticalBox } from "std-widgets.slint";
+export component chatWin-input {
+    Rectangle {
+        background: #333;
+        VerticalBox {
+            TextEdit {
+                enabled: true;
+                font-size: 14px;
+                horizontal-alignment: TextHorizontalAlignment.left;
+                text: "pepee";
+                wrap: TextWrap.word-wrap;
+            }
+        }
+    }
+}

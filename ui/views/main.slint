@@ -1,0 +1,60 @@
+import { sidebar } from "../components/sidebar.slint";
+import { styles } from "../styles.slint";
+import { chatWindow } from "../components/chatWindow.slint";
+
+export component mainView {
+    in-out property <length> dividerPosition: 250px;
+    property <bool> dragging: false;
+    
+    HorizontalLayout {
+        // spacing: styles.margin;
+        
+        sidebar-container := Rectangle {
+            width: dividerPosition;
+            
+            sidebar {
+                width: parent.width;
+                height: parent.height;
+            }
+        }
+        
+        divider := Rectangle {
+            width: dragging ? 5px : 3px;
+            background: dragging ? #555 : #444;
+
+            animate width, background {
+                duration: 100ms;
+                easing: ease-out;
+            }
+            
+            TouchArea {
+                width: parent.width + 8px;
+                x: -4px;
+                mouse-cursor: ew-resize;
+                
+                moved => {
+                    if (self.pressed) {
+                        dividerPosition = max(150px, min(root.width - 150px - self.width, dividerPosition + self.mouse-x - self.pressed-x));
+                    }
+                }
+                
+                pointer-event(event) => {
+                    if (event.kind == PointerEventKind.down) {
+                        dragging = true;
+                    } else if (event.kind == PointerEventKind.up || event.kind == PointerEventKind.cancel) {
+                        dragging = false;
+                    }
+                }
+            }
+        }
+        
+        chatWindow {}
+    }
+    
+    Text {
+        text: "tea-app";
+        color: green;
+        x: styles.margin;
+        y: styles.margin;
+    }
+}

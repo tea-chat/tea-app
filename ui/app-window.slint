@@ -1,0 +1,9 @@
+import { sidebar } from "components/sidebar.slint";
+import { styles } from "styles.slint";
+import { mainView } from "views/main.slint";
+export component MainWindow inherits Window {
+    mainView {
+        width: parent.width;
+        height: parent.height;
+    }
+}
