@@ -7,7 +7,8 @@ export component mainView {
     property <bool> dragging: false;
     
     HorizontalLayout {
-        // spacing: styles.margin;
+        padding: styles.margin * 2;
+        spacing: styles.margin;
         
         sidebar-container := Rectangle {
             width: dividerPosition;
@@ -20,8 +21,8 @@ export component mainView {
         
         divider := Rectangle {
             width: dragging ? 5px : 3px;
-            background: dragging ? #555 : #444;
-
+            background: dragging ? styles.theme.accent.container : styles.theme.background;
+            border-radius: styles.border-radius;
             animate width, background {
                 duration: 100ms;
                 easing: ease-out;
@@ -49,12 +50,5 @@ export component mainView {
         }
         
         chatWindow {}
-    }
-    
-    Text {
-        text: "tea-app";
-        color: green;
-        x: styles.margin;
-        y: styles.margin;
     }
 }

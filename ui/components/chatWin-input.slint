@@ -2,13 +2,15 @@ import { styles } from "../styles.slint";
 import { TextEdit, VerticalBox } from "std-widgets.slint";
 export component chatWin-input {
     Rectangle {
-        background: #333;
+        background: styles.theme.container.background;
+        border-radius: styles.border-radius;
         VerticalBox {
-            TextEdit {
+            TextInput {
                 enabled: true;
+                color: styles.theme.container.text;
                 font-size: 14px;
                 horizontal-alignment: TextHorizontalAlignment.left;
-                text: "pepee";
+                text: "Placeholder Text";
                 wrap: TextWrap.word-wrap;
             }
         }

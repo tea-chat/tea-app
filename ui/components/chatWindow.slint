@@ -1,18 +1,21 @@
 import { chatWin-input } from "chatWin-input.slint";
+import { styles } from "../styles.slint";
 export component chatWindow {
     VerticalLayout {
-
+        spacing: styles.margin;
         Rectangle {
-            background: #222;
+            border-radius: styles.border-radius;
+            background: styles.theme.container.background;
             vertical-stretch: 1;
             Text {
-                color: #eee;
+                color: styles.theme.container.text;
                 text: "chat window";
             }
         }
 
         chatWin-input {
-            height: 40px;
+            
+            height: 50px;
         }
     }
 }
