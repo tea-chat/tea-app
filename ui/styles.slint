@@ -1,25 +1,25 @@
 struct container{
-    background: color,
-    floating: color,
-    ghost-text: color,
-    text: color
+    background: brush,
+    floating: brush,
+    ghost-text: brush,
+    text: brush
 }
 
 struct accent{
-    background: color,
-    ghost-text: color,
-    container: color,
-    text: color
+    background: brush,
+    ghost-text: brush,
+    container: brush,
+    text: brush
 }
 
 struct mTheme{
-    background: color,
+    background: brush,
     container: container,
     accent: accent,
 }
 
 export global styles{
-    out property <length> margin: 4px;
+    out property <length> margin: 8px;
     out property <length> border-radius: 6px;
     in-out property <bool> isDark: true;
 

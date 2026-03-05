@@ -3,6 +3,20 @@ import { styles } from "styles.slint";
 import { mainView } from "views/main.slint";
 export component MainWindow inherits Window {
     background: styles.theme.background;
+
+    fs := FocusScope {
+        width: 0; height: 0;
+        key-pressed(event) => {
+            if event.text == "t" {
+                styles.isDark = !styles.isDark;
+                return accept;
+            }
+            reject
+        }
+    }
+
+    init => { fs.focus(); }
+
     mainView {
         width: parent.width;
         height: parent.height;

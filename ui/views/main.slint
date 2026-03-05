@@ -1,13 +1,13 @@
 import { sidebar } from "../components/sidebar.slint";
 import { styles } from "../styles.slint";
-import { chatWindow } from "../components/chatWindow.slint";
+import { chatWindow } from "../components/contentPanel.slint";
 
 export component mainView {
     in-out property <length> dividerPosition: 250px;
     property <bool> dragging: false;
     
     HorizontalLayout {
-        padding: styles.margin * 2;
+        padding: styles.margin;
         spacing: styles.margin;
         
         sidebar-container := Rectangle {
@@ -20,10 +20,11 @@ export component mainView {
         }
         
         divider := Rectangle {
-            width: dragging ? 5px : 3px;
-            background: dragging ? styles.theme.accent.container : styles.theme.background;
+            width: 4px;
+            // background: dragging ? @linear-gradient(180deg, transparent 0%, styles.theme.accent.container 50%, transparent 100%) : styles.theme.background;
+            background: dragging ? styles.theme.container.floating : styles.theme.background;
             border-radius: styles.border-radius;
-            animate width, background {
+            animate background {
                 duration: 100ms;
                 easing: ease-out;
             }

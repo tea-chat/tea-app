@@ -5,13 +5,16 @@ export component chatWin-input {
         background: styles.theme.container.background;
         border-radius: styles.border-radius;
         VerticalBox {
+            padding: 16px;
             TextInput {
                 enabled: true;
                 color: styles.theme.container.text;
-                font-size: 14px;
+                font-size: 16px;
                 horizontal-alignment: TextHorizontalAlignment.left;
                 text: "Placeholder Text";
                 wrap: TextWrap.word-wrap;
+                font-family: "Lexend";
+                single-line: false;
             }
         }
     }
