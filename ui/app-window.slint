@@ -3,19 +3,21 @@ import { styles } from "styles.slint";
 import { mainView } from "views/main.slint";
 export component MainWindow inherits Window {
     background: styles.theme.background;
+    preferred-width: 900px;
+    preferred-height: 600px;
+    icon: @image-url("assets/icon.png");
 
-    fs := FocusScope {
-        width: 0; height: 0;
-        key-pressed(event) => {
-            if event.text == "t" {
-                styles.isDark = !styles.isDark;
-                return accept;
-            }
-            reject
-        }
-    }
-
-    init => { fs.focus(); }
+    // fs := FocusScope {
+    //     width: 0; height: 0;
+    //     key-pressed(event) => {
+    //         if event.text == "t" {
+    //             styles.isDark = !styles.isDark;
+    //             return accept;
+    //         }
+    //         reject
+    //     }
+    // }
+    // init => { fs.focus(); }
 
     mainView {
         width: parent.width;

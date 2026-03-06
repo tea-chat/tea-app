@@ -8,7 +8,7 @@ export component mainView {
     
     HorizontalLayout {
         padding: styles.margin;
-        spacing: styles.margin / 2;
+        spacing: styles.margin / 2 - 1.5px;
         
         sidebar-container := Rectangle {
             width: dividerPosition;
@@ -20,9 +20,10 @@ export component mainView {
         }
         
         divider := Rectangle {
-            width: 0px;
+            width: 3px;
             // background: dragging ? @linear-gradient(180deg, transparent 0%, styles.theme.accent.container 50%, transparent 100%) : styles.theme.background;
             background: dragging ? styles.theme.container.floating : styles.theme.background;
+
             border-radius: 3px;
             animate background {
                 duration: 100ms;
@@ -30,7 +31,7 @@ export component mainView {
             }
             
             TouchArea {
-                width: 11px;
+                width: parent.width + 10px;
                 x: -4px;
                 mouse-cursor: ew-resize;
                 
