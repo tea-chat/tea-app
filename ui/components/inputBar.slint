@@ -16,8 +16,13 @@ export component chatWin-input inherits Rectangle {
             font-family: "Lexend";
             single-line: false;
 
-            accepted => {
-                text = "";
+            key-pressed(KeyEvent) => {
+                if (KeyEvent.text == Key.Return && !KeyEvent.modifiers.shift) {
+                    text = "";
+                    accept
+                } else {
+                    reject
+                }
             }
         }
     }
