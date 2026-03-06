@@ -1,21 +1,34 @@
 import { styles } from "../styles.slint";
 import { TextEdit, VerticalBox } from "std-widgets.slint";
-export component chatWin-input {
-    Rectangle {
-        background: styles.theme.container.background;
-        border-radius: styles.border-radius;
-        VerticalBox {
-            padding: 16px;
-            TextInput {
-                enabled: true;
-                color: self.has-focus ? styles.theme.container.text : styles.theme.container.ghost-text;
-                font-size: 16px;
-                horizontal-alignment: TextHorizontalAlignment.left;
-                text: self.has-focus ? "" : "Typing in...";
-                wrap: TextWrap.word-wrap;
-                font-family: "Lexend";
-                single-line: false;
+export component chatWin-input inherits Rectangle {
+    in-out property <string> text <=> input.text;
+
+    background: styles.theme.container.background;
+    border-radius: 6px;
+    VerticalBox {
+        padding: 16px;
+
+        input := TextInput {
+            color: styles.theme.container.text;
+            font-size: 16px;
+            horizontal-alignment: TextHorizontalAlignment.left;
+            wrap: TextWrap.word-wrap;
+            font-family: "Lexend";
+            single-line: true;
+
+            accepted => {
+                text = "";
             }
         }
+    }
+
+    Text {
+        text: "Typing in...";
+        color: styles.theme.container.ghost-text;
+        x: input.x;
+        y: input.y;
+        font-size: 16px;
+
+        visible: input.text == "";
     }
 }
