@@ -8,10 +8,10 @@ export component chatWin-input {
             padding: 16px;
             TextInput {
                 enabled: true;
-                color: styles.theme.container.text;
+                color: self.has-focus ? styles.theme.container.text : styles.theme.container.ghost-text;
                 font-size: 16px;
                 horizontal-alignment: TextHorizontalAlignment.left;
-                text: "Placeholder Text";
+                text: self.has-focus ? "" : "Typing in...";
                 wrap: TextWrap.word-wrap;
                 font-family: "Lexend";
                 single-line: false;
