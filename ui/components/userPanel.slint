@@ -1,11 +1,12 @@
 import { styles } from "../styles.slint";
+import { IconDisplay, IconSet } from "@lucide";
 
 export component userPanel {
-    TouchArea {
+    mContainer := TouchArea {
         height: self.has-hover ? 60px : 25px;
         y: parent.height - self.height;
         animate height {
-            duration: 200ms;
+            duration: 300ms;
             easing: styles.easing;
         }
         mouse-cursor: pointer;
@@ -14,6 +15,38 @@ export component userPanel {
             border-top-left-radius: styles.border-radius * 2;
             border-top-right-radius: styles.border-radius * 2;
             HorizontalLayout {
+                visible: mContainer.has-hover ? true : false;
+                padding: styles.margin;
+                spacing: styles.margin;
+                alignment: stretch;
+
+                Text {
+                    text: "displayName";
+                    color: styles.theme.accent.text;
+                    font-size: 16px;
+                    vertical-alignment: center;
+                }
+
+                Text{
+                    text: "@username";
+                    color: styles.theme.accent.ghost-text;
+                    font-size: 16px;
+                    vertical-alignment: center;
+                    horizontal-stretch: 1;
+                }
+                Rectangle {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: styles.border-radius;
+                    background: styles.theme.accent.container;
+
+                    IconDisplay {
+                        icon: IconSet.Settings;
+                        stroke: styles.theme.accent.text;
+                        size: 16px;
+                        stroke-width: 2;
+                    }
+                }
             }
         }
     }
