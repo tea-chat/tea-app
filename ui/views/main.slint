@@ -1,11 +1,17 @@
 import { sidebar } from "../components/sidebar.slint";
 import { styles } from "../styles.slint";
 import { chatWindow } from "../components/contentPanel.slint";
+import { userPanel } from "../components/userPanel.slint";
 
 export component mainView {
     in-out property <length> dividerPosition: 250px;
     property <bool> dragging: false;
-    
+    userPanel {
+        width: sidebar-container.width;
+        x: sidebar-container.x;
+        y: root.height - self.height;
+        z: 999; // probably change this later idk
+    }
     HorizontalLayout {
         padding: styles.margin;
         spacing: styles.margin / 2 - 1.5px;
@@ -17,6 +23,9 @@ export component mainView {
                 width: parent.width;
                 height: parent.height;
             }
+
+
+
         }
         
         divider := Rectangle {
