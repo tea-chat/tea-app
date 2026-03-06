@@ -1,11 +1,18 @@
 import { styles } from "../styles.slint";
+import { serverList } from "serverList.slint";
+import { channelList } from "channelList.slint";
 
 export component sidebar {
     Rectangle {
-        background: styles.theme.background;
-        Text {
-            color: styles.theme.container.text;
-            text: "sidebar";
+        HorizontalLayout {
+            spacing: styles.margin;
+            serverList {
+                width: 66px;
+            }
+            channelList {
+                horizontal-stretch: 1;
+            }
         }
+        background: styles.theme.background;
     }
 }
