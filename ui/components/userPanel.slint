@@ -27,24 +27,28 @@ export component userPanel {
                     vertical-alignment: center;
                 }
 
-                Text{
+                Text {
                     text: "@username";
                     color: styles.theme.accent.ghost-text;
                     font-size: 16px;
                     vertical-alignment: center;
                     horizontal-stretch: 1;
                 }
-                Rectangle {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: styles.border-radius;
-                    background: styles.theme.accent.container;
 
-                    IconDisplay {
-                        icon: IconSet.Settings;
-                        stroke: styles.theme.accent.text;
-                        size: 16px;
-                        stroke-width: 2;
+                VerticalLayout {
+                    alignment: center;
+                    Rectangle {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: styles.border-radius;
+                        background: styles.theme.accent.container;
+
+                        IconDisplay {
+                            icon: IconSet.Settings;
+                            stroke: styles.theme.accent.text;
+                            size: 16px;
+                            stroke-width: 2;
+                        }
                     }
                 }
             }
